@@ -1,0 +1,23 @@
+
+1: sudo nano /etc/systemd/system/myapp.service
+
+Code:
+#################
+[Unit]
+Description=My App
+After=network.target
+
+[Service]
+User=ali
+WorkingDirectory=/home/ali/app
+ExecStart=/home/ali/app/server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+#######################################
+
+
+2:sudo systemctl daemon-reexec
+sudo systemctl enable myapp
+sudo systemctl start myapp

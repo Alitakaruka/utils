@@ -1,0 +1,30 @@
+Шаг 1. На сервере создаем bare repo
+
+На сервере:
+
+mkdir -p ~/repos/app.git
+cd ~/repos/app.git
+git init --bare //Без проекта, только файлы гита
+
+
+Шаг 2. Создаем рабочую директорию
+mkdir -p ~/app
+
+
+Шаг 3. Создаем deploy hook
+
+На сервере:
+
+nano ~/repos/app.git/hooks/post-receive
+
+//Вставить содержимое файла из deploy hook. подогнать под себя. Там все понятно.
+
+3.1 Сделать исполняемым
+
+chmod +x ~/repos/app.git/hooks/post-receive
+
+
+Шаг 4. На твоем dev-компе добавь remote
+git remote add server user@192.168.1.100:repos/app.git
+
+Обычное подключение.

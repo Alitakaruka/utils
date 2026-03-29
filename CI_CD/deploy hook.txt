@@ -1,0 +1,22 @@
+#!/bin/bash
+
+APP_DIR=~/app
+REPO_DIR=~/repos/app.git
+
+echo "Deploying..."
+
+git --work-tree=$APP_DIR --git-dir=$REPO_DIR checkout -f main
+
+cd $APP_DIR
+
+echo "Building..."
+
+# пример для Go
+/usr/bin/go build -o server
+
+echo "Restarting service..."
+
+pkill server || true
+nohup ./server > server.log 2>&1 &
+
+echo "Done."
