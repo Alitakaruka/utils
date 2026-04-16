@@ -8,7 +8,7 @@ git init --bare //Без проекта, только файлы гита
 
 
 Шаг 2. Создаем рабочую директорию
-mkdir -p ~/app
+mkdir -p ~/app_ma
 
 
 Шаг 3. Создаем deploy hook

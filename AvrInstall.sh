@@ -37,6 +37,9 @@ lsusb | grep 16c0:05dc
 
 echo "Done."
 
-
+# echo "Add user in dialout!"
+# sudo usermod -aG dialout $USER
+# newgrp dialout
+# groups
 
 echo "All done. Please reboot the computer."
